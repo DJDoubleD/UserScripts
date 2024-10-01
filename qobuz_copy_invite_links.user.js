@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Qobuz Copy Invite Links
+// @name         Copy Qobuz Invite Links
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Copy the Invite links from the Household page
 // @author       tmxkwpn
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=qobuz.com
@@ -14,23 +14,36 @@
 (function() {
     'use strict';
 
-    // Create a button
-    const button = document.createElement('button');
-    button.innerHTML = 'Copy Qobuz Links';
-    button.style.position = 'fixed';
-    button.style.top = '10px';
-    button.style.left = '10px';
-    button.style.zIndex = 1000;
-    button.style.padding = '10px 20px';
-    button.style.backgroundColor = 'red';
-    button.style.color = 'white';
-    button.style.border = 'none';
-    button.style.borderRadius = '5px';
-    button.style.cursor = 'pointer';
-    button.style.fontSize = '16px';
+    // Function to create and style the button
+    function createButton() {
+        const button = document.createElement('button');
+        button.innerHTML = 'Copy Qobuz Invite Links';
+        button.style.position = 'absolute';
+        button.style.padding = '10px 20px';
+        button.style.backgroundColor = 'black';
+        button.style.color = 'white';
+        button.style.border = 'none';
+        button.style.borderRadius = '5px';
+        button.style.cursor = 'pointer';
+        button.style.fontSize = '16px';
 
-    // Append the button to the body
-    document.body.appendChild(button);
+        // Add event listener to copy links when button is clicked
+        button.addEventListener('click', copyLinks);
+
+        // Find the h1 element and append the button to it
+        const h1 = document.querySelector('h1.account-content__title');
+        if (h1) {
+            h1.style.position = 'relative';
+            h1.appendChild(button);
+
+            // Center the button inside the h1
+            button.style.left = '50%';
+            button.style.top = '50%';
+            button.style.transform = 'translate(-50%, -50%)';
+        } else {
+            alert('No title element found to append the button.');
+        }
+    }
 
     // Function to find and copy links
     function copyLinks() {
@@ -52,6 +65,6 @@
         }
     }
 
-    // Add event listener to the button
-    button.addEventListener('click', copyLinks);
+    // Wait for the DOM to load before creating the button
+    window.addEventListener('load', createButton);
 })();
