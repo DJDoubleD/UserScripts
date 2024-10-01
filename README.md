@@ -23,6 +23,6 @@ Install [this](https://github.com/DJDoubleD/UserScripts/raw/refs/heads/master/qo
 
 <details><summary><b>Screenshots</b></summary>
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/86c252dc-5a18-4699-ac20-8dc861e88efc">
+    <img src="https://github.com/user-attachments/assets/b4117742-a8ac-4e4d-b411-02fd146fdbcc">
 </p>
 </details>
