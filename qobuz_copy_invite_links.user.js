@@ -19,13 +19,17 @@
         const button = document.createElement('button');
         button.innerHTML = 'Copy Qobuz Invite Links';
         button.style.position = 'absolute';
-        button.style.padding = '10px 20px';
-        button.style.backgroundColor = 'black';
-        button.style.color = 'white';
+        button.style.padding = '20px 40px 16px';
+        button.style.backgroundColor = '#3D93FF';
+        button.style.color = '#ffffff';
         button.style.border = 'none';
+        button.style.borderColor = '#3D93FF';
         button.style.borderRadius = '5px';
         button.style.cursor = 'pointer';
         button.style.fontSize = '16px';
+        button.style.fontWeight = '700';
+        button.style.letterSpacing = '.4px';
+        button.style.maxwidth = '100%';
 
         // Add event listener to copy links when button is clicked
         button.addEventListener('click', copyLinks);
